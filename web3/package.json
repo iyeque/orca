@@ -1,0 +1,18 @@
+{
+  "name": "orca-web3",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "hardhat": "hardhat"
+  },
+  "devDependencies": {
+    "@nomiclabs/hardhat-waffle": "^2.0.3",
+    "ethereum-waffle": "^3.4.4",
+    "chai": "^4.3.4",
+    "hardhat": "^2.17.0"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.9.3",
+    "ethers": "^5.7.2"
+  }
+} 

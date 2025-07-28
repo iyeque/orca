@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+web3
+scikit-learn
+ipfshttpclient
+pandas
+requests
+python-dotenv
+pydantic 

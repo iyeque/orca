@@ -1,0 +1,52 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pkl
+*.env
+*.venv
+.env
+.venv
+*.egg-info/
+
+# Node.js
+node_modules/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+*.pid
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Build
+build/
+dist/
+
+# Frontend
+.next/
+
+# Hardhat
+artifacts/
+cached-*
+coverage/
+cache/
+
+# Misc
+*.bak
+*.swp
+*.swo
+*.tmp
+
+# Ignore local config
+*.local.js
+*.local.json
