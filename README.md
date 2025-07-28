@@ -65,6 +65,7 @@ ipfshttpclient
 pandas
 requests
 python-dotenv
+pydantic 
 ```
 
 ---
