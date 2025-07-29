@@ -33,14 +33,24 @@ A full-stack, AI-powered, Web3-native supply chain management platform with real
    - Frontend: http://localhost:3000
    - Backend API: http://localhost:8000
 5. **Deploy smart contracts**
-   - Use Hardhat/Truffle scripts in `web3/` to deploy contracts to your testnet/mainnet
-   - Export ABI and addresses for backend use
+   - Navigate to the `web3/` directory: `cd web3`
+   - Install Hardhat and other dependencies: `npm install`
+   - Compile the smart contracts: `npx hardhat compile`
+   - Deploy contracts to your local blockchain (Ganache, running via Docker Compose): `npx hardhat run scripts/deploy.js --network localhost`
+   - Export ABI and addresses for frontend and backend use: `npx hardhat run scripts/export_abi_and_address.js`
+   - **Important**: Ensure `SHIPMENT_SENDER_PK` and `NFT_SENDER_PK` are set in your `.env` file for the backend to interact with the deployed contracts.
 6. **Test the platform**
    - Connect wallet in frontend
    - Create shipments, mint NFTs, fetch metadata, predict delays, use oracles, upload images, and vote in DAO
 
 ## Environment Variables
-See `.env.example` for all required variables (weather, vision, Ethereum, Chainlink, IPFS, etc.)
+See `.env.example` for all required variables. Critical variables include:
+- `WEATHER_API_KEY`, `WEATHER_API_URL`: For weather oracle integration.
+- `VISION_API_KEY`, `VISION_API_URL`: For computer vision stock counting.
+- `ETH_RPC_URL`: Ethereum RPC endpoint for Web3 interactions.
+- `CHAINLINK_ORACLE_ADDRESS`, `CHAINLINK_JOB_ID`, `CHAINLINK_NODE_URL`, `CHAINLINK_API_KEY`: For Chainlink oracle integration.
+- `IPFS_API_URL`: For IPFS metadata storage.
+- `SHIPMENT_SENDER_PK`, `NFT_SENDER_PK`: Private keys for the backend to send transactions to the smart contracts (e.g., creating shipments, minting NFTs). **These are crucial for Web3 features to function.**
 
 ## Directory Structure
 - `backend/` - FastAPI backend
