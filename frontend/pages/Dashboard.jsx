@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import WalletConnect from '../components/WalletConnect';
-import ShipmentForm from '../components/ShipmentForm';
-import ShipmentList from '../components/ShipmentList';
-import OracleWidget from '../components/OracleWidget';
-import VisionWidget from '../components/VisionWidget';
-import DAOWidget from '../components/DAOWidget';
-import AnimatedCard from '../components/AnimatedCard';
+import WalletConnect from '../src/components/WalletConnect';
+import ShipmentForm from '../src/components/ShipmentForm';
+import ShipmentList from '../src/components/ShipmentList';
+import OracleWidget from '../src/components/OracleWidget';
+import VisionWidget from '../src/components/VisionWidget';
+import DAOWidget from '../src/components/DAOWidget';
+import AnimatedCard from '../src/components/AnimatedCard';
 
 export default function Dashboard() {
   const [wallet, setWallet] = useState(null);
@@ -35,4 +35,4 @@ export default function Dashboard() {
       </AnimatedCard>
     </div>
   );
-} 
+}
