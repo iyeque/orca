@@ -72,4 +72,4 @@ def dao_vote(data: dict = Body(...)):
 
 @app.get("/dao/proposals")
 def dao_list_proposals():
-    return get_proposals() 
+    return get_proposals()

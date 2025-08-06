@@ -1,7 +1,10 @@
 FROM python:3.10-slim
 WORKDIR /app
-COPY requirements.txt ./
+COPY backend/requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
-COPY . .
+COPY backend /app/backend
+COPY ai /app/ai
+COPY web3/smart_contracts /app/smart_contracts
 EXPOSE 8000
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"] 
+ENV PYTHONPATH=/app
+CMD ["python", "-m", "uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "8000"]

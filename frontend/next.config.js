@@ -3,8 +3,8 @@ module.exports = {
     return [
       {
         source: '/api/:path*',
-        destination: 'http://localhost:8000/:path*',
+        destination: `${process.env.NEXT_PUBLIC_BACKEND_API_URL}/:path*`,
       },
     ];
   },
-}; 
+};

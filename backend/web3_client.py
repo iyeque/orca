@@ -4,9 +4,9 @@ import os
 
 w3 = Web3(Web3.HTTPProvider('http://blockchain:8545'))
 
-with open(os.path.join(os.path.dirname(__file__), '../smart_contracts/ShipmentTracker.abi.json')) as f:
+with open(os.path.join(os.path.dirname(__file__), './contracts/ShipmentTracker.abi.json')) as f:
     SHIPMENT_ABI = json.load(f)
-with open(os.path.join(os.path.dirname(__file__), '../smart_contracts/SupplierNFT.abi.json')) as f:
+with open(os.path.join(os.path.dirname(__file__), './contracts/SupplierNFT.abi.json')) as f:
     NFT_ABI = json.load(f)
 
 SHIPMENT_ADDRESS = os.environ.get('SHIPMENT_TRACKER_ADDRESS')
