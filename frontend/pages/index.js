@@ -87,6 +87,34 @@ export default function Home() {
               icon="Visibility"
             />
           </Grid>
+          <Grid item xs={12} md={4}>
+            <FeatureCard
+              title="Comprehensive Inventory Management"
+              description="Gain real-time visibility into your stock, automate reordering, and prevent stockouts."
+              icon="Inventory"
+            />
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <FeatureCard
+              title="Streamlined Purchase Order Management"
+              description="Create, track, and manage purchase orders with an integrated approval workflow."
+              icon="ReceiptLong"
+            />
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <FeatureCard
+              title="Secure User Authentication"
+              description="Protect your data with robust user authentication and authorization using OAuth2 and JWT."
+              icon="Security"
+            />
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <FeatureCard
+              title="API Rate Limiting"
+              description="Ensure platform stability and prevent abuse with intelligent API rate limiting on all key endpoints."
+              icon="Speed"
+            />
+          </Grid>
         </Grid>
       </Container>
 

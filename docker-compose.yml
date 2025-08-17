@@ -6,6 +6,16 @@ services:
       dockerfile: ./backend/Dockerfile
     ports:
       - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://user:password@db:5432/orca_db
+      - REDIS_URL=redis://redis:6379
+      - SHIPMENT_SENDER_PK=0x0000000000000000000000000000000000000000000000000000000000000001
+      - NFT_SENDER_PK=0x0000000000000000000000000000000000000000000000000000000000000002
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_started
     
   frontend:
     build:
@@ -14,15 +24,44 @@ services:
         - NEXT_PUBLIC_BACKEND_API_URL=http://backend:8000
     ports:
       - "3000:3000"
+    depends_on:
+      - backend
     
   blockchain:
     image: trufflesuite/ganache-cli
     ports:
       - "8545:8545"
     command: ["--host", "0.0.0.0"]
+
   ipfs:
     image: ipfs/go-ipfs:v0.7.0
     ports:
       - "5001:5001"
     volumes:
       - ./ipfs_data:/data/ipfs 
+
+  db:
+    image: postgres:13-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: orca_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U user -d orca_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:alpine
+    restart: always
+    ports:
+      - "6379:6379"
+
+volumes:
+  db_data:
