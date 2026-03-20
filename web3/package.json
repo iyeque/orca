@@ -13,6 +13,8 @@
   },
   "dependencies": {
     "@openzeppelin/contracts": "^4.9.3",
-    "ethers": "^5.7.2"
+    "axios": "1.14.0",
+    "ethers": "^5.7.2",
+    "socket.io-client": "4.8.3"
   }
 }
