@@ -1,0 +1,38 @@
+services:
+  - type: web
+    name: orca-backend
+    env: docker
+    rootDir: backend
+    buildCommand: ""
+    startCommand: python -m uvicorn main:app --host 0.0.0.0 --port 8000
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: orca-postgres
+          property: connectionString
+      - key: REDIS_URL
+        fromService:
+          name: orca-redis
+          property: host
+      - key: SHIPMENT_SENDER_PK
+        value: 0x0000000000000000000000000000000000000000000000000000000000000001
+      - key: NFT_SENDER_PK
+        value: 0x0000000000000000000000000000000000000000000000000000000000000002
+      - key: SECRET_KEY
+        generateValue: true
+      - key: WEATHER_API_KEY
+        value: your_weather_api_key_here
+    dependsOn:
+      - orca-postgres
+      - orca-redis
+
+  - type: postgres
+    name: orca-postgres
+    plan: free
+    databaseName: orca_db
+    user: user
+    password: password
+
+  - type: redis
+    name: orca-redis
+    plan: free
